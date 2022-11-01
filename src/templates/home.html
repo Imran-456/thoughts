@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="posts">
+    {% for post in posts %}
+    <div class="post">
+        <div class="post-header">
+            <div class="date">{{ post[4] }}</div>
+            <div class="title">
+                <h2>{{ post[1] }}</h2>
+            </div>
+        </div>
+        <div class="post-content">
+            <div class="description">
+                {{ post[2] }} <a class="continue" href="{{ url_for('article', post_id = post[0]) }}">Continue...</a>
+            </div>
+        </div>
+        <div class="author">
+            <h5>Author: {{ post[3] }}</h5>
+        </div>
+    </div>
+    <hr class="post-sperate">
+    {% endfor %}
+</div>
+{% endblock %}

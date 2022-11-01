@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div class="single-post">
+    <div class="meta">
+        <div class="date">{{ post.date_posted.date() }}</div>
+        <div class="title">
+            <h2>{{ post.title }}</h2>
+        </div>
+        <div class="author">
+            <h4>Author: {{ author.name }} </h4>
+        </div>
+    </div>
+    <div class="single-content">
+        {{post.content}}
+    </div>
+</div>
+{% if current_user == author %}
+<div class="article-buttons">
+    <a href="{{ url_for('update_article', post_id = post.id) }}"><button class="update">Update</button></a>
+    <a href="{{ url_for('delete_article', post_id = post.id) }}"><button class="delete">Delete</button></a>
+</div>
+{% endif %}
+{% endblock %}

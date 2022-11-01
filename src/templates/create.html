@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="form-article">
+    <div class="form-title">
+        <h2>{{ form_title }}</h2>
+    </div>
+    <div class="form-body">
+        <form method="POST">
+            {{ form.hidden_tag() }}
+            {{ form.title.label(class='label') }}
+            <br>
+            {% if form.title.errors %}
+            {{ form.title(type="text", placeholder="eg:how do one fly?", class="error-box") }}
+            <div class="errors">
+                {% for error in form.title.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.title(type="text", id="Title", placeholder="eg:how do one fly?") }}
+            <br>
+            {% endif %}
+            {{ form.content.label(class='label') }}
+            <br>
+            {% if form.content.errors %}
+            {{ form.content(type="text", id="content", placeholder="write here..", class="error-box") }}
+            <div class="errors">
+                {% for error in form.content.errors %}
+                <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+            {% else %}
+            {{ form.content(type="textarea", id="content", placeholder="write here..", cols="30", rows="10") }}
+            {% endif %}
+            <br>
+            {{ form.post(type="submit", value="Post", class="button") }}
+        </form>
+    </div>
+</div>
+{% endblock %}
