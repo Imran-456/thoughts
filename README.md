@@ -1,5 +1,5 @@
 ## Steps to run this app.
-Install and start virtual environment
+Install and create virtual environment
 ```
 pip install virtualenv
 python -m virtualenv env
