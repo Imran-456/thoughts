@@ -13,7 +13,7 @@ env\Scripts\activate
 clone the repo to local
 
 ```
-git clone <HTTP/SSH/..>
+git clone https://github.com/Imran-456/thoughts.git
 ```
 
 
